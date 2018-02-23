@@ -1,3 +1,6 @@
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Headers "X-Requested-With, Content-Type, Accept, Origin, Authorization"
+Header add Access-Control-Allow-Methods "GET, POST, OPTIONS"
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
