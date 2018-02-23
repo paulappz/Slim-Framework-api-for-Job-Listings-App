@@ -12,8 +12,8 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
     return $response;
 });
 
-//Cinema Routes
+//vanhack Routes
 
-require '../src/route/cinema.php';
+require '../src/route/vanhack.php';
 
 $app->run();
