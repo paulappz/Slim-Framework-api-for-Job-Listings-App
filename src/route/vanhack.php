@@ -24,6 +24,25 @@ echo '{"error":{"text":'.$e->getMessage().'}}';
     }
 });
 
+// Get All vanhackjobs
+$app->get('/api/vanhackjobsfilter', function (Request $request, Response $response) {
+
+    $sql = "SELECT country, job_type FROM `jobs` ";
+
+    try{
+        // Get DB Oject
+$db = new db();
+// Connect
+$db = $db->connect();
+
+$stmt = $db->query($sql);
+$vanhackjobs = $stmt->fetchAll(PDO::FETCH_OBJ);
+$db= null;
+echo json_encode($vanhackjobs,JSON_UNESCAPED_SLASHES);
+    }catch(PDOException $e){
+echo '{"error":{"text":'.$e->getMessage().'}}';
+    }
+});
 
 // Get vanhackjobs for infinite loading
 $app->get('/api/vanhackjobs/{lastid}', function (Request $request, Response $response) {
