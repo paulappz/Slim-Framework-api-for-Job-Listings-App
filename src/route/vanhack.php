@@ -7,7 +7,7 @@ $app = new \Slim\App;
 // Get All vanhackjobs
 $app->get('/api/vanhackjobs', function (Request $request, Response $response) {
 
-    $sql = "SELECT * FROM `jobs`";
+    $sql = "SELECT * FROM `jobs` LIMIT 5";
 
     try{
         // Get DB Oject
@@ -28,7 +28,7 @@ echo '{"error":{"text":'.$e->getMessage().'}}';
 // Get vanhackjobs for infinite loading
 $app->get('/api/vanhackjobs/{lastid}', function (Request $request, Response $response) {
     $lastid = $request->getAttribute('lastid');
-    $sql = "SELECT * FROM `jobs` WHERE id > $lastid LIMIT 5 ";
+    $sql = "SELECT * FROM `jobs` WHERE id > $lastid LIMIT 2 ";
 
     try{
         // Get DB Oject
